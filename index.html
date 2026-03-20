@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>AI Study Companion</title>
+    <link rel="stylesheet" href="./styles.css" >
+  </head>
+  <body>
+    <div class="bg-orbs" aria-hidden="true">
+      <div class="orb orb--1"></div>
+      <div class="orb orb--2"></div>
+      <div class="orb orb--3"></div>
+    </div>
+
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand__mark" aria-hidden="true">
+            <span class="brand__dot"></span>
+            <span class="brand__dot brand__dot--2"></span>
+            <span class="brand__dot brand__dot--3"></span>
+          </div>
+          <div class="brand__text">
+            <div class="brand__title">AI Study Companion</div>
+            <div class="brand__subtitle">
+              <span id="todayLabel">Today</span> · Study smart, not harder
+            </div>
+          </div>
+        </div>
+
+        <div class="topbar__actions">
+          <div class="pill pill--soft" title="Streak (example)">
+            <span class="pill__label">Streak</span>
+            <span class="pill__value">7 days</span>
+          </div>
+          <button class="icon-btn" type="button" aria-label="Open focus mode" title="Focus mode (visual)">
+            <span class="icon-btn__glyph" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </header>
+
+      <nav class="tabs" role="tablist" aria-label="Main sections">
+        <button
+          class="tab is-active"
+          type="button"
+          role="tab"
+          id="tab-dashboard"
+          aria-selected="true"
+          aria-controls="panel-dashboard"
+        >
+          Dashboard
+        </button>
+        <button
+          class="tab"
+          type="button"
+          role="tab"
+          id="tab-quiz"
+          aria-selected="false"
+          aria-controls="panel-quiz"
+        >
+          Quiz Area
+        </button>
+        <button
+          class="tab"
+          type="button"
+          role="tab"
+          id="tab-weakness"
+          aria-selected="false"
+          aria-controls="panel-weakness"
+        >
+          Weakness Tracker
+        </button>
+      </nav>
+
+      <main class="grid">
+        <!-- Dashboard -->
+        <section class="card card--dashboard tab-panel is-active" id="panel-dashboard" tabindex="0" role="tabpanel" aria-labelledby="tab-dashboard">
+          <div class="card__head">
+            <div class="card__title">
+              <span class="card__emoji" aria-hidden="true">📚</span>
+              Dashboard
+            </div>
+            <div class="card__meta">
+              <span class="tag tag--good">Smart reminders</span>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="mini-stats">
+                <div class="stat">
+                <div class="stat__label">Time Studied</div>
+                <div class="stat__value">42m</div>
+                <div class="stat__bar" role="presentation">
+                  <span class="stat__barFill pct-66"></span>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Focus Score</div>
+                <div class="stat__value">88</div>
+                <div class="stat__ring" aria-hidden="true">
+                  <span class="stat__ringInner">88</span>
+                </div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Next Session</div>
+                <div class="stat__value">18:30</div>
+                <div class="stat__hint">Review + quiz</div>
+              </div>
+            </div>
+
+            <div class="subhead">
+              <div class="subhead__title">Study Schedule</div>
+              <div class="subhead__actions">
+                <button class="link-btn" type="button" aria-label="Edit schedule (placeholder)">
+                  Edit
+                </button>
+              </div>
+            </div>
+
+            <div class="schedule">
+              <div class="schedule__row">
+                <div class="schedule__time">10:00</div>
+                <div class="schedule__main">
+                  <div class="schedule__title">Math · Practice sets</div>
+                  <div class="schedule__desc">Focus on weak formulas</div>
+                </div>
+                <span class="badge badge--neutral">Today</span>
+              </div>
+              <div class="schedule__row schedule__row--active">
+                <div class="schedule__time">13:00</div>
+                <div class="schedule__main">
+                  <div class="schedule__title">Biology · Active recall</div>
+                  <div class="schedule__desc">Flashcards + short answers</div>
+                </div>
+                <span class="badge badge--good">In progress</span>
+              </div>
+              <div class="schedule__row">
+                <div class="schedule__time">16:00</div>
+                <div class="schedule__main">
+                  <div class="schedule__title">History · Timeline recap</div>
+                  <div class="schedule__desc">Summaries in your own words</div>
+                </div>
+                <span class="badge badge--neutral">Today</span>
+              </div>
+              <div class="schedule__row">
+                <div class="schedule__time">18:30</div>
+                <div class="schedule__main">
+                  <div class="schedule__title">Chemistry · Micro-quiz</div>
+                  <div class="schedule__desc">Check mistakes with the tracker</div>
+                </div>
+                <span class="badge badge--soft">Later</span>
+              </div>
+            </div>
+
+            <div class="subhead">
+              <div class="subhead__title">Smart Reminders</div>
+              <div class="subhead__actions">
+                <button class="link-btn" type="button" aria-label="Snooze reminders (placeholder)">
+                  Snooze
+                </button>
+              </div>
+            </div>
+
+            <div class="reminders">
+              <div class="reminder">
+                <div class="reminder__left">
+                  <span class="reminder__dot reminder__dot--warn" aria-hidden="true"></span>
+                  <div>
+                    <div class="reminder__title">Review “Derivatives”</div>
+                    <div class="reminder__desc">2 mistakes last time · 10-minute refresh</div>
+                  </div>
+                </div>
+                <div class="reminder__right">
+                  <span class="reminder__time">In 25m</span>
+                  <span class="tag tag--warn">Due soon</span>
+                </div>
+              </div>
+              <div class="reminder">
+                <div class="reminder__left">
+                  <span class="reminder__dot reminder__dot--good" aria-hidden="true"></span>
+                  <div>
+                    <div class="reminder__title">Do a quick recall sweep</div>
+                    <div class="reminder__desc">Answer 5 questions without notes</div>
+                  </div>
+                </div>
+                <div class="reminder__right">
+                  <span class="reminder__time">Next</span>
+                  <span class="tag tag--good">Suggested</span>
+                </div>
+              </div>
+              <div class="reminder">
+                <div class="reminder__left">
+                  <span class="reminder__dot reminder__dot--soft" aria-hidden="true"></span>
+                  <div>
+                    <div class="reminder__title">Take a 3-minute break</div>
+                    <div class="reminder__desc">Hydrate + stretch wrists</div>
+                  </div>
+                </div>
+                <div class="reminder__right">
+                  <span class="reminder__time">Now</span>
+                  <span class="tag tag--soft">Gentle</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">
+              <div class="subhead__title">Personalized Study Plan</div>
+              <div class="subhead__actions">
+                <button class="link-btn" type="button" id="generatePlanBtn">
+                  Generate
+                </button>
+              </div>
+            </div>
+            <div class="plan-box" aria-live="polite">
+              <div class="plan-box__status muted" id="studyPlanStatus">
+                Finish the quiz to fetch your mistakes and generate a study plan.
+              </div>
+              <div class="plan-box__text" id="studyPlanText"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card card--quiz tab-panel" id="panel-quiz" tabindex="0" role="tabpanel" aria-labelledby="tab-quiz">
+          <div class="card__head">
+            <div class="card__title">
+              <span class="card__emoji" aria-hidden="true">🧠</span>
+              Quiz Area
+            </div>
+            <div class="card__meta">
+              <span class="tag tag--neutral">No logic yet</span>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="quiz-top">
+              <div class="progress">
+                <div class="progress__label" id="quizProgressLabel">Quiz Progress</div>
+                <progress class="progress__bar" value="3" max="10" aria-labelledby="quizProgressLabel">3 / 10</progress>
+                <div class="progress__meta">
+                  <span id="quizProgressMetaCount">3 / 10</span>
+                  <span class="muted" id="quizProgressMetaHint">Keep going</span>
+                </div>
+              </div>
+              <div class="quiz-chip">
+                <div class="quiz-chip__k">Topic</div>
+                  <div class="quiz-chip__v" id="quizTopicValue">Derivatives</div>
+              </div>
+            </div>
+
+            <article class="question">
+              <div class="question__head">
+                <span class="pill pill--soft question__pill">Multiple Choice</span>
+                  <span class="question__number" id="questionNumber">Question 1</span>
+              </div>
+
+                <h2 class="question__text" id="questionText">
+                  What is the derivative of <span class="math">f(x) = x<sup>3</sup></span> ?
+                </h2>
+
+                <div class="question__hint" id="questionHint">
+                Tip: Use the power rule: derivative of <span class="kbd">x^n</span> is <span class="kbd">n·x^(n-1)</span>.
+              </div>
+
+              <div class="choices" role="group" aria-label="Answer choices">
+                <button class="choice-button" type="button" data-choice="a">
+                  <span class="choice-button__key">A</span>
+                  <span class="choice-button__text">3x<sup>2</sup></span>
+                </button>
+                <button class="choice-button" type="button" data-choice="b">
+                  <span class="choice-button__key">B</span>
+                  <span class="choice-button__text">x<sup>2</sup></span>
+                </button>
+                <button class="choice-button" type="button" data-choice="c">
+                  <span class="choice-button__key">C</span>
+                  <span class="choice-button__text">2x<sup>3</sup></span>
+                </button>
+                <button class="choice-button" type="button" data-choice="d">
+                  <span class="choice-button__key">D</span>
+                  <span class="choice-button__text">3x</span>
+                </button>
+              </div>
+
+              <div class="question__footer">
+                <div class="result-box" aria-live="polite">
+                  <div class="result-box__icon" aria-hidden="true">✓</div>
+                  <div>
+                    <div class="result-box__title">Your answer</div>
+                      <div class="result-box__desc muted" id="answerPreviewDesc">Select an option to preview the flow.</div>
+                  </div>
+                </div>
+
+                <div class="question__actions">
+                  <button class="btn btn--soft" type="button" id="skipBtn">
+                    Skip
+                  </button>
+                  <button class="btn btn--primary" type="button" id="nextBtn" disabled>
+                    Next →
+                  </button>
+                </div>
+              </div>
+            </article>
+
+              <div class="quiz-end" id="quizEnd" hidden>
+                <div class="quiz-end__summary result-box" aria-live="polite">
+                  <div class="result-box__icon quiz-end__icon" aria-hidden="true">★</div>
+                  <div>
+                    <div class="result-box__title" id="quizEndTitle">Mock Score</div>
+                    <div class="result-box__desc muted" id="quizEndDesc">Complete the quiz to see your results.</div>
+                    <div class="quiz-end__score" id="quizEndScore">0%</div>
+                    <div class="quiz-end__breakdown muted" id="quizEndBreakdown">0 correct out of 0</div>
+                  </div>
+                </div>
+
+                <div class="question__actions quiz-end__actions">
+                  <button class="btn btn--primary" type="button" id="restartQuizBtn">
+                    Restart quiz
+                  </button>
+                </div>
+              </div>
+
+            <div class="fineprint">
+              This is a UI-first mock. The quiz logic will be added next.
+            </div>
+          </div>
+        </section>
+
+        <!-- Weakness -->
+        <section class="card card--weakness tab-panel" id="panel-weakness" tabindex="0" role="tabpanel" aria-labelledby="tab-weakness">
+          <div class="card__head">
+            <div class="card__title">
+              <span class="card__emoji" aria-hidden="true">🔎</span>
+              Weakness Tracker
+            </div>
+            <div class="card__meta">
+              <span class="tag tag--neutral">Past mistakes</span>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="weak-top">
+              <div class="select">
+                <label class="select__label" for="filterSelect">Filter</label>
+                <select class="select__control" id="filterSelect" aria-label="Filter weaknesses">
+                  <option>All Topics</option>
+                  <option>Derivatives</option>
+                  <option>Biology</option>
+                  <option>Chemistry</option>
+                  <option>History</option>
+                </select>
+              </div>
+              <button class="link-btn" type="button" aria-label="Add a mistake (placeholder)">
+                + Add
+              </button>
+            </div>
+
+            <div class="weak-list">
+              <div class="weak-row">
+                <div class="weak-row__left">
+                  <div class="topic-dot topic-dot--a" aria-hidden="true"></div>
+                  <div class="weak-row__topic">
+                    <div class="weak-row__name">Derivatives</div>
+                    <div class="weak-row__sub muted">Power rule accuracy</div>
+                  </div>
+                </div>
+                <div class="weak-row__right">
+                  <div class="weak-row__count">2 errors</div>
+                  <div class="weak-row__bar" role="presentation">
+                    <span class="weak-row__fill pct-70"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="weak-row">
+                <div class="weak-row__left">
+                  <div class="topic-dot topic-dot--b" aria-hidden="true"></div>
+                  <div class="weak-row__topic">
+                    <div class="weak-row__name">Stoichiometry</div>
+                    <div class="weak-row__sub muted">Unit conversions</div>
+                  </div>
+                </div>
+                <div class="weak-row__right">
+                  <div class="weak-row__count">1 error</div>
+                  <div class="weak-row__bar" role="presentation">
+                    <span class="weak-row__fill pct-42"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="weak-row">
+                <div class="weak-row__left">
+                  <div class="topic-dot topic-dot--c" aria-hidden="true"></div>
+                  <div class="weak-row__topic">
+                    <div class="weak-row__name">Cell Respiration</div>
+                    <div class="weak-row__sub muted">Key steps order</div>
+                  </div>
+                </div>
+                <div class="weak-row__right">
+                  <div class="weak-row__count">1 error</div>
+                  <div class="weak-row__bar" role="presentation">
+                    <span class="weak-row__fill pct-35"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="subhead">
+              <div class="subhead__title">Recent Mistakes</div>
+              <div class="subhead__actions">
+                <button class="link-btn" type="button" aria-label="View all mistakes (placeholder)">
+                  View all
+                </button>
+              </div>
+            </div>
+
+            <div class="mistakes-wrap">
+              <table class="mistakes" aria-label="Recent mistakes table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Topic</th>
+                    <th>Mistake</th>
+                    <th>Fix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mar 18</td>
+                    <td>Derivatives</td>
+                    <td>Wrong exponent</td>
+                    <td><span class="chip chip--good">Power rule drill</span></td>
+                  </tr>
+                  <tr>
+                    <td>Mar 16</td>
+                    <td>Chemistry</td>
+                    <td>Forgot units</td>
+                    <td><span class="chip chip--soft">Dimensional checks</span></td>
+                  </tr>
+                  <tr>
+                    <td>Mar 12</td>
+                    <td>Biology</td>
+                    <td>Step order</td>
+                    <td><span class="chip chip--neutral">Flashcard review</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__left">
+          <span class="muted">Built with Vanilla HTML/CSS/JS</span>
+        </div>
+        <div class="footer__right">
+          <span class="footer__kbd kbd">Tab</span>
+          <span class="muted">to navigate·</span>
+          <span class="footer__kbd kbd">Enter</span>
+          <span class="muted">to act</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+
